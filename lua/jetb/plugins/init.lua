@@ -3,6 +3,7 @@ return {
     "folke/lazy.nvim",
     version = "*",
   },
+
   {
     "octoant/jetb.nvim",
     version = "*",
@@ -13,5 +14,6 @@ return {
   },
 
   { import = "jetb.plugins.appearance" },
+  { import = "jetb.plugins.editor" },
   { import = "jetb.plugins.languages" },
 }

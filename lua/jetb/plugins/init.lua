@@ -11,4 +11,6 @@ return {
     cond = true,
     opts = {},
   },
+
+  { import = "jetb.plugins.languages" },
 }

@@ -32,7 +32,20 @@ require("lazy").setup {
     { import = "plugins" },
   },
   dev = {
-    path= "~/projects",
+    path = function(plugin)
+      local searchPaths = {
+        "~/Projects/personal",
+        "~/projects/personal",
+      }
+      for _, path in ipairs(searchPaths) do
+        local candidate = vim.fs.joinpath(vim.fn.expand(path), plugin.name)
+        if vim.fn.isdirectory(candidate) == 1 then
+	  vim.notify(candidate, vim.log.levels.INFO)
+          return candidate
+        end
+      end
+      return nil
+    end,
     patterns = { "octoant" },
     fallback = true,
   },

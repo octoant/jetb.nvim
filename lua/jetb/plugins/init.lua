@@ -12,5 +12,6 @@ return {
     opts = {},
   },
 
+  { import = "jetb.plugins.appearance" },
   { import = "jetb.plugins.languages" },
 }

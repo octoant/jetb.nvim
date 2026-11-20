@@ -21,30 +21,13 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Make sure to setup `mapleader` and `maplocalleader` before
--- loading lazy.nvim so that mappings are correct.
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
 require("lazy").setup {
   spec = {
     { "octoant/jetb.nvim", import = "jetb.plugins" },
     { import = "plugins" },
   },
   dev = {
-    path = function(plugin)
-      local searchPaths = {
-        "~/Projects/personal",
-        "~/projects/personal",
-      }
-      for _, path in ipairs(searchPaths) do
-        local candidate = vim.fs.joinpath(vim.fn.expand(path), plugin.name)
-        if vim.fn.isdirectory(candidate) == 1 then
-          return candidate
-        end
-      end
-      return nil
-    end,
+    path = "~/Projects/personal",
     patterns = { "octoant" },
     fallback = true,
   },

@@ -2,7 +2,7 @@ local M = {}
 
 ---@param opts? table
 function M.setup(opts)
-  require("options")
+  require("jetb.options")
 end
 
 return M

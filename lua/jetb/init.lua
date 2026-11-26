@@ -1,8 +1,8 @@
 local M = {}
 
----@param opts? jetb.Opts
+---@param opts? table
 function M.setup(opts)
-  require("jetb.config").setup(opts)
+  require("options")
 end
 
 return M
